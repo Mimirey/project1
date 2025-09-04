@@ -9,9 +9,24 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-              <a href="home" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Home</a>
-              <a href="profil" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Profil</a>
-              <a href="kontak" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Kontak</a>
+              <x-nav-link 
+                href="/home"
+                :active="request()->is('home')"
+                >Home
+              </x-nav-link>
+
+              <x-nav-link
+                href="/profil"
+                :active="request()->is('profil')"
+              >Profill
+              </x-nav-link>
+
+              <x-nav-link
+                href="/kontak"
+                :active="request()->is('kontak')"
+              >Kontak
+              </x-nav-link>
+            
               {{-- <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
               <a href="#" class=korounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Reports</a> --}}
             </div>
@@ -62,11 +77,26 @@
     <el-disclosure id="mobile-menu" hidden class="block md:hidden">
       <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
         <!-- Current: "bg-gray-950S/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-        <a href="home" aria-current="page" class="block rounded-md bg-gray-950/50 px-3 py-2 text-base font-medium text-white">Home</a>
-        <a href="profil" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Profil</a>
-        <a href="kontak" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Kontak</a>
-        {{-- <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Reports</a> --}}
+        <x-nav-link-mobile
+        href="home" 
+        :active="request()->is('home')"
+        >Home
+        </x-nav-link-mobile>
+        
+        <x-nav-link-mobile
+        href="profil" 
+        :active="request()->is('profil')"
+        >Profil
+        </x-nav-link-mobile>
+        
+        <x-nav-link-mobile
+        href="kontak" 
+        :active="request()->is('kontak')"
+        >Kontak
+        </x-nav-link-mobile>
+        
+        {{-- <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray hover:bg-white/5 hover:text-white">Calendar</a>
+        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray- hover:bg-white/5 hover:text-white">Reports</a> --}}
       </div>
       <div class="border-t border-white/10 pt-4 pb-3">
         <div class="flex items-center px-5">

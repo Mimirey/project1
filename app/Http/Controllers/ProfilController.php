@@ -14,7 +14,8 @@ class ProfilController extends Controller
         $data=[
             'nama'=> 'Myra Isadora',
             'kelas'=> 'XI PPLG 2',
-            'sekolah'=> 'SMK Raden Umar Said Kudus'
+            'sekolah'=> 'SMK Raden Umar Said Kudus',
+            'title'=> 'Profil'
         ];
         return view('profil', $data);
     }
@@ -24,8 +25,8 @@ class ProfilController extends Controller
             'wasap'=>'0822 5769 7764',
             'insta'=>'@myraeyrii',
             'secAcc'=>'@issador.aa',
-            'git'=>'mimireyy'
-            
+            'git'=>'mimireyy',
+            'title'=>'Kontak'
         ];
         return view ('kontak', $data);
     }
