@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('grade');
             $table->string('email')->unique();
             $table->string('address');
+            $table->date('bday');
+            $table->string('gender');
             $table->timestamps();
         });
     }
