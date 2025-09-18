@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot:judul>{{$title}}</x-slot:kontak>
+    <x-slot:judul>{{$title}}</x-slot:judul>
     <div class="kontak-container">
         <h1 class="kontak-title">Kontak Saya</h1>
         <ul class="kontak-list">
