@@ -32,6 +32,12 @@
                 :active="request()->is('students')"
               >Students
               </x-nav-link>
+
+              <x-nav-link
+                href="/guardians"
+                :active="request()->is('guardians')"
+              >Guardians
+              </x-nav-link>
             
               {{-- <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
               <a href="#" class=korounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Reports</a> --}}
@@ -105,6 +111,12 @@
         href="students" 
         :active="request()->is('students')"
         >Students
+        </x-nav-link-mobile>
+
+        <x-nav-link-mobile
+        href="students" 
+        :active="request()->is('students')"
+        >Guardians
         </x-nav-link-mobile>
 
         {{-- <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray hover:bg-white/5 hover:text-white">Calendar</a>
