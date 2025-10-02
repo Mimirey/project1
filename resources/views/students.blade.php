@@ -19,7 +19,7 @@
                 <tr>
                     <td class="border border-gray-300 px-4 py-2 text-left">{{$loop->iteration}}</td>
                     <td class="border border-gray-300 px-4 py-2 text-left">{{$student['name']}}</td>
-                    <td class="border border-gray-300 px-4 py-2 text-left">{{$student['grade']}}</td>
+                    <td class="border border-gray-300 px-4 py-2 text-left">{{$student->classroom->class}}</td>
                     <td class="border border-gray-300 px-4 py-2 text-left">{{$student['email']}}</td>
                     <td class="border border-gray-300 px-4 py-2 text-left">{{$student['address']}}</td>
                     <td class="border border-gray-300 px-4 py-2 text-left">{{$student['bday']}}</td>
