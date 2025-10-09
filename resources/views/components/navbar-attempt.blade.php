@@ -44,6 +44,18 @@
                 :active="request()->is('classrooms')"
               >Classrooms
               </x-nav-link>
+
+              <x-nav-link
+                href="/teachers"
+                :active="request()->is('teachers')"
+              >Teacher
+              </x-nav-link>
+
+              <x-nav-link
+                href="/subjects"
+                :active="request()->is('subjects')"
+              >Subject
+              </x-nav-link>
             
               {{-- <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
               <a href="#" class=korounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Reports</a> --}}
