@@ -11,6 +11,11 @@ class Subject extends Model
     /** @use HasFactory<\Database\Factories\SubjectFactory> */
     use HasFactory;
 
+    protected $fillable = [
+    'availSubject',
+    'desc'
+    ];
+
     public function teachers(){
         return $this->belongsTo(Teacher::class, 'subject_id');
     }

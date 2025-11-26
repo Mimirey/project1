@@ -9,6 +9,11 @@ use App\Http\Controllers\GuardianController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\Admin\AdminClassroomController;
+use App\Http\Controllers\Admin\AdminStudentsController;
+use App\Http\Controllers\Admin\AdminTeacherController;
+use App\Http\Controllers\Admin\AdminSubjectController;
+use App\Http\Controllers\Admin\AdminGuardianController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -22,3 +27,14 @@ Route::get('/guardians',[GuardianController::class,'index']);
 Route::get('/classrooms',[ClassroomController::class,'index']);
 Route::get('/teachers',[TeacherController::class,'index']);
 Route::get('/subjects',[SubjectController::class,'index']);
+
+Route::view('/dashboard','admin.dashboard');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('students', AdminStudentsController::class);
+    Route::resource('teachers', AdminTeacherController::class);
+    Route::resource('classrooms', AdminClassroomController::class)->except(['destroy']);
+    Route::resource('subjects', AdminSubjectController::class);
+    Route::resource('guardians', AdminGuardianController::class);
+});
+
