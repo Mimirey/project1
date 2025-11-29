@@ -63,7 +63,12 @@
                                     <div id="dropdown-{{ $subject->id }}" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
                                             <li>
-                                                <a href="{{ route('admin.subjects.show', $subject->id) }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
+                                                <button type="button"
+                                                    data-modal-target="showSubjectModal-{{ $subject->id }}"
+                                                    data-modal-toggle="showSubjectModal-{{ $subject->id }}"
+                                                    class="open-edit-modal block w-full text-left py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                    Show
+                                                </button>
                                             </li>
                                             <li>
                                                 <button type="button"
@@ -116,6 +121,11 @@
             {{-- Modals Edit per subject --}}
             @foreach ($subjects as $subject)
                  @include('admin.subject.edit', ['subject' => $subject])
+            @endforeach
+
+            {{-- Modals SHOW per subject --}}
+            @foreach ($subjects as $subject)
+                @include('admin.subject.show', ['subject' => $subject])
             @endforeach
 
         </div>

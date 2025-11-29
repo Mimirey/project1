@@ -68,10 +68,12 @@
                                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
 
                                             <li>
-                                                <a href="{{ route('admin.teachers.show', $teacher->id) }}" 
-                                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Show
-                                                </a>
+                                                <button type="button"
+                                                    data-modal-target="showTeacherModal-{{ $teacher->id }}"
+                                                    data-modal-toggle="showTeacherModal-{{ $teacher->id }}"
+                                                    class="open-edit-modal block w-full text-left py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                    Show
+                                                </button>
                                             </li>
 
                                             <li>
@@ -138,11 +140,15 @@
                 </div>
             </div>
 
-            {{-- Modals Edit per student --}}
+            {{-- Modals Edit per teacher --}}
             @foreach ($teachers as $teacher)
                 @include('admin.teacher.edit', ['teacher' => $teacher, 'subjects' => $subjects])
             @endforeach
 
+            {{-- Modals SHOW per teacher --}}
+            @foreach ($teachers as $teacher)
+                @include('admin.teacher.show', ['teacher' => $teacher])
+            @endforeach
         </div>
     </section>
 </x-layout>

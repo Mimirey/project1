@@ -69,7 +69,13 @@
                                     <div id="dropdown-{{ $student->id }}" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
                                             <li>
-                                                <a href="{{ route('admin.students.show', $student->id) }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
+                                                <button type="button"
+                                                    data-modal-target="showStudentModal-{{ $student->id }}"
+                                                    data-modal-toggle="showStudentModal-{{ $student->id }}"
+                                                    class="open-edit-modal block w-full text-left py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                    Show
+                                                </button>
+                                                <!-- <a href="{{ route('admin.students.show', $student->id) }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a> -->
                                             </li>
                                             <li>
                                                 <button type="button"
@@ -128,6 +134,11 @@
             {{-- Modals Edit per student --}}
             @foreach ($students as $student)
                 @include('admin.student.edit', ['student' => $student])
+            @endforeach
+
+            {{-- Modals SHOW per student --}}
+            @foreach ($students as $student)
+                @include('admin.student.show', ['student' => $student])
             @endforeach
 
         </div>

@@ -69,7 +69,12 @@
                                     <div id="dropdown-{{ $guardian->id }}" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
                                             <li>
-                                                <a href="{{ route('admin.guardians.show', $guardian->id) }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
+                                                <button type="button"
+                                                    data-modal-target="showGuardianModal-{{ $guardian->id }}"
+                                                    data-modal-toggle="showGuardianModal-{{ $guardian->id }}"
+                                                    class="open-edit-modal block w-full text-left py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                                    Show
+                                                </button>
                                             </li>
                                             <li>
                                                 <button type="button"
@@ -128,6 +133,11 @@
             {{-- Modals Edit per guardian --}}
             @foreach ($guardians as $guardian)
                 @include('admin.guardian.edit')
+            @endforeach
+
+            {{-- Modals SHOW per guardian --}}
+            @foreach ($guardians as $guardian)
+                @include('admin.guardian.show', ['guardian' => $guardian])
             @endforeach
 
         </div>
