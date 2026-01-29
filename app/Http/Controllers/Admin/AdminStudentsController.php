@@ -23,11 +23,13 @@ class AdminStudentsController extends Controller
                 ->orWhere('bday', 'like', "%{$search}%") 
                 ->orWhere('gender', 'like', "%{$search}%") 
                 ->orWhere('address', 'like', "%{$search}%")
-                ->orWhere('classroom_id', 'like', "%{$search}%");
+                ->orWhereHas('classroom', function($subQuery) use ($search){
+                    $subQuery->where('class', 'like', "%{$search}%");
+                });
         }
 
 
-        $students= $query->latest()->paginate(10);
+        $students= $query->latest()->paginate(7);
         $classrooms = Classroom::all();
         return view('admin/student.students', [
             'title'=>'students',

@@ -1,5 +1,4 @@
 <x-admin.layout>
-    <x-layout>
     <x-slot:judul>{{ $title }}</x-slot:judul>
 
     <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
@@ -100,7 +99,50 @@
                         of
                         <span class="font-semibold text-gray-900 dark:text-white">{{ $classrooms->total() }}</span>
                     </span>
-                    <div class="mt-4">{{ $classrooms->links() }}</div>
+                    <!-- <div class="mt-4">{{ $classrooms->links() }}</div> -->
+                    <ul class="inline-flex items-stretch -space-x-px">
+                    <li>
+                        <li>
+                            @if ($classrooms->onFirstPage())
+                                <span class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                    ❮
+                                </span>
+                            @else
+                                <a href="{{ $classrooms->previousPageUrl() }}"
+                                class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                    ❮
+                                </a>
+                            @endif
+                        </li>
+                    </li>
+                    @foreach ($classrooms->links()->elements[0] as $page => $url)
+                        <li>
+                            @if ($page == $classrooms->currentPage())
+                                <span class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                    {{ $page }}
+                                </span>
+                            @else
+                                <a href="{{ $url }}"
+                                class="flex items-center justify-center text-sm py-2 px-3
+                                text-gray-500 bg-white border border-gray-300 hover:bg-gray-100">
+                                    {{ $page }}
+                                </a>
+                            @endif
+                        </li>
+                    @endforeach
+                    <li>
+                        @if ($classrooms->hasMorePages())
+                            <a href="{{ $classrooms->nextPageUrl() }}"
+                            class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                ❯
+                            </a>
+                        @else
+                            <span class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                ❯
+                            </span>
+                        @endif
+                    </li>
+                </ul>
                 </nav>
             </div>
 
@@ -143,7 +185,4 @@
         });
     </script>
 
-
-    
-</x-layout>
 </x-admin.layout>

@@ -17,7 +17,7 @@ class SubjectFactory extends Factory
     public function definition(): array
     {
         return [
-            'availSubject'=>fake()->unique()->randomElement(['Bahasa Inggris', 'Bahasa Jerman', 'Website Development', 'Mobile Development', 'IoT']),
+            'availSubject'=>fake()->randomElement(['Bahasa Inggris', 'Bahasa Jerman', 'Website Development', 'Mobile Development', 'IoT']),
             'desc'=>fake()->randomElement(['Subject Pilihan', 'Subject Wajib'])
         ];
     }

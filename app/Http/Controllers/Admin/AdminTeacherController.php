@@ -18,7 +18,9 @@ class AdminTeacherController extends Controller
                 ->orWhere('email', 'like', "%{$search}%")
                 ->orWhere('phone', 'like', "%{$search}%") 
                 ->orWhere('address', 'like', "%{$search}%")
-                ->orWhere('subject_id', 'like', "%{$search}%");
+                ->orWhereHas('subject', function($subQuery) use ($search){
+                    $subQuery->where('availSUbject', 'like', "%{$search}%");
+        });
         }
 
     $teachers = $query->with('subject')->latest()->paginate(10);
@@ -27,7 +29,7 @@ class AdminTeacherController extends Controller
     return view('admin.teacher.teachers', [
         'title' => 'teachers',
         'teachers' => $teachers,
-        'subjects' => $subjects,  // ← tambahkan ini
+        'subjects' => $subjects,  
     ]);
     }
 

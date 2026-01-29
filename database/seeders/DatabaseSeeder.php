@@ -9,6 +9,7 @@ use App\Models\Guardian;
 use App\Models\Classroom;
 use App\Models\Teacher;
 use App\Models\Subject;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,6 +31,8 @@ class DatabaseSeeder extends Seeder
         Subject::factory(5)
         ->hasTeachers(1)
         ->create();
+
+        $this->call(UserSeeder::class);
         
    
     }

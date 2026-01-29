@@ -7,7 +7,7 @@
     <title>Admin Panel</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-50 dark:bg-gray-900">
+<body class="bg-gray-50 dark:bg-gray-900 mt-9">
 
     {{-- Navbar --}}
     <x-admin.navbar />
